@@ -1,0 +1,9 @@
+Weather app 
+
+- Setup 
+- Design 
+- HMTL
+- CSS
+- Search engine (Basic JavaScript)
+- API Integration 
+- Forecast
