@@ -3,39 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
     <title>SheCodes Vanilla Weather App</title>
   </head>
   <body>
-    <header>
-      <form>
-        <input type="search" placeholder="Enter city" required />
-        <input type="submit" value="Search" />
-      </form>
-    </header>
-    <main>
-      <div>
-        Current Date
-        <br />
-        Current Time
-      </div>
-      <h1>Houston</h1>
-      <div>
-        75°F
-        <p>
-          Tuesday 14:49, scattered clouds
+    <div class="weather-app">
+      <header>
+        <form>
+          <input type="search" placeholder="Enter city" required />
+          <input type="submit" value="Search" />
+        </form>
+      </header>
+      <main>
+        <div class="current-date-time">
+          Current Date
           <br />
-          Humidity: 66%, Wind: 3.13km/h
-        </p>
-      </div>
-    </main>
-    <footer>
-      This project was coded by
-      <a href="https://github.com/coachnavira" target="_blank"> Navira</a>, is
-      <a href="https://github.com/coachnavira/shecodesvanilla" target="_blank"
-        >open-sourced on GitHub</a
-      >
-      and
-      <a href="https://www.netlify.com" target="_blank">hosted on Netlify</a>.
-    </footer>
+          Current Time
+        </div>
+        <h1>Houston</h1>
+        <div class="current-temp">
+          75°F
+          <p>
+            Tuesday 14:49, scattered clouds
+            <br />
+            Humidity: 66%, Wind: 3.13km/h
+          </p>
+        </div>
+      </main>
+      <footer>
+        This project was coded by
+        <a href="https://github.com/coachnavira" target="_blank"> Navira</a>, is
+        <a href="https://github.com/coachnavira/shecodesvanilla" target="_blank"
+          >open-sourced on GitHub</a
+        >
+        and
+        <a href="https://www.netlify.com" target="_blank">hosted on Netlify</a>.
+      </footer>
+    </div>
   </body>
 </html>
