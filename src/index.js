@@ -1,13 +1,3 @@
-Weather app 
-
-- Setup 
-- Design 
-- HMTL
-- CSS
-- Search engine (Basic JavaScript)
-- API Integration 
-- Forecast
-
 function updateWeather(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
