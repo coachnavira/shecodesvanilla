@@ -79,7 +79,7 @@ main {
 .current-temp {
   font-size: 78px;
   font-weight: bold;
-  margin-left: 18px;
+  margin-left: 0px;
 }
 
 .current-unit {

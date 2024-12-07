@@ -1,4 +1,4 @@
-// update the city name and temperature
+// update the weather information based on the city submitted
 function updateCityTemp(response) {
   let temperatureElement = document.querySelector("#current-temp");
   let temperature = response.data.temperature.current;
@@ -12,17 +12,16 @@ function updateCityTemp(response) {
   let dateElement = document.querySelector("#date");
   let date = new Date(response.data.time * 1000);
   let emojiElement = document.querySelector("#current-emoji");
-  let emoji = response.data.condition.icon;
 
   console.log(response.data);
 
   cityInput.innerHTML = response.data.city;
   temperatureElement.innerHTML = Math.round(temperature);
   descriptionElement.innerHTML = description;
-  humidityElement.innerHTML = humidity;
-  windElement.innerHTML = wind;
+  humidityElement.innerHTML = `Humidity: <strong>${humidity}%</strong>, `;
+  windElement.innerHTML = `Wind: <strong>${wind}km/h</strong>`;
   dateElement.innerHTML = formatDate(date);
-  emojiElement.innerHTML = emoji;
+  emojiElement.innerHTML = `<img src=${response.data.condition.icon_url} />`;
 }
 
 // format the date
