@@ -15,25 +15,31 @@
   <body>
     <div class="weather-app">
       <header>
-        <form>
-          <input type="search" placeholder="Enter city" required />
-          <input type="submit" value="Search" />
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter city"
+            required
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-form-button" />
         </form>
       </header>
       <main>
-        <div class="current-date-time">
-          Current Date
-          <br />
-          Current Time
-        </div>
-        <h1>Houston</h1>
-        <div class="current-temp">
-          75°F
-          <p>
-            Tuesday 14:49, scattered clouds
-            <br />
-            Humidity: 66%, Wind: 3.13km/h
-          </p>
+        <div class="weather-app-data">
+          <div>
+            <h1 class="weather-app-city">Houston</h1>
+            <p class="weather-app-details">
+              Tuesday 14:49, scattered clouds
+              <br />
+              Humidity: <strong>66%</strong>, Wind: <strong>3.13km/h</strong>
+            </p>
+          </div>
+          <div class="weather-app-temperature-container">
+            <div class="current-emoji">⛅️</div>
+            <div class="current-temp">75</div>
+            <div class="current-unit">°F</div>
+          </div>
         </div>
       </main>
       <footer>
