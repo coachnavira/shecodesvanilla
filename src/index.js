@@ -16,7 +16,9 @@ function updateCityTemp(response) {
   console.log(response.data);
 
   cityInput.innerHTML = response.data.city;
-  temperatureElement.innerHTML = Math.round(temperature);
+  temperatureElement.innerHTML = `${Math.round(
+    temperature
+  )} <span class="current-unit">°C</span>`;
   descriptionElement.innerHTML = description;
   humidityElement.innerHTML = `Humidity: <strong>${humidity}%</strong>, `;
   windElement.innerHTML = `Wind: <strong>${wind}km/h</strong>`;
