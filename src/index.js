@@ -1,3 +1,4 @@
+// MAIN WEATHER TEMPERATURE
 // update the weather information based on the city submitted
 function updateCityTemp(response) {
   let temperatureElement = document.querySelector("#current-temp");
@@ -62,7 +63,35 @@ function updateWeather(event) {
   accessAPI(searchInput.value);
 }
 
+// The purpose of this function is to update the forecast after the city is submitted
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHTML = "";
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="weather-forecast-day">
+                <div class="weather-forecast-date">${day}</div>
+                <div class="weather-forecast-emoji">⛅️</div>
+                    <div class="weather-forecast-temperatures">
+                        <div class="weather-forecast-temperature">
+                            <strong>15°</strong>
+                        </div>
+                        <div class="weather-forecast-temperature">
+                            30°
+                        </div>
+                    </div>
+            </div>`;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", updateWeather);
 
-// in order to use the API, you will need to add a link to AJAX with Axios and place it in the header
+// in order to use the Weather API, you will need to add a link to AJAX with Axios and place it in the header
+
+displayForecast();
