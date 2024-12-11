@@ -1,5 +1,5 @@
 // MAIN WEATHER TEMPERATURE
-// update the weather information based on the city submitted
+// The purpose of this function is to update the weather information based on the city submitted
 function updateCityTemp(response) {
   let temperatureElement = document.querySelector("#current-temp");
   let temperature = response.data.temperature.current;
@@ -25,9 +25,11 @@ function updateCityTemp(response) {
   windElement.innerHTML = `Wind: <strong>${wind}km/h</strong>`;
   dateElement.innerHTML = formatDate(date);
   emojiElement.innerHTML = `<img src=${response.data.condition.icon_url} />`;
+
+  getForecast(response.data.city);
 }
 
-// format the date
+// The purpose of this function is to format the date
 function formatDate(date) {
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -48,14 +50,14 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}, `;
 }
 
-// access the weather API for the particular city
+// THe purpose of this function is to access the weather API for the searched city
 function accessAPI(city) {
   let apiKey = "at534282bb04c7407fb1fcb329do3c45";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(updateCityTemp);
 }
 
-// search for the city
+// The purpose of this function is to search for the city
 function updateWeather(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
@@ -63,14 +65,23 @@ function updateWeather(event) {
   accessAPI(searchInput.value);
 }
 
-// The purpose of this function is to update the forecast after the city is submitted
-function displayForecast() {
+// The purpose of this function is to access the forecast API for the searched city
+function getForecast(city) {
+  let apiKey = "at534282bb04c7407fb1fcb329do3c45";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+// The purpose of this function is to update the forecast for the searched city
+function displayForecast(response) {
+  console.log(response.data);
+
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-  let forecastHTML = "";
+  let forecastHtml = "";
 
   days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
+    forecastHtml =
+      forecastHtml +
       `<div class="weather-forecast-day">
                 <div class="weather-forecast-date">${day}</div>
                 <div class="weather-forecast-emoji">⛅️</div>
@@ -86,12 +97,10 @@ function displayForecast() {
   });
 
   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHtml;
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", updateWeather);
 
-// in order to use the Weather API, you will need to add a link to AJAX with Axios and place it in the header
-
-displayForecast();
+// NOTE: In order to use the Weather API, you will need to add a link to AJAX with Axios and place it in the header
