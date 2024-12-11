@@ -92,25 +92,26 @@ main {
 .weather-forecast {
   display: flex;
   justify-content: space-around;
+  margin-top: 20px;
 }
 .weather-forecast-date {
   text-align: center;
   color: rgba(39, 33, 66, 0.4);
   font-size: 16px;
   line-height: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .weather-forecast-emoji {
   text-align: center;
-  font-size: 32px;
+  font-size: 35px;
 }
 
 .weather-forecast-temperatures {
   text-align: center;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 3px;
 }
 
 .weather-forecast-temperature {

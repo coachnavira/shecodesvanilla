@@ -65,6 +65,15 @@ function updateWeather(event) {
   accessAPI(searchInput.value);
 }
 
+// FORECASTING
+// The purpose of this function is to format the day according to API timestamp
+function formatDay(timestamp) {
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = new Date(timestamp * 1000);
+
+  return days[day.getDay()];
+}
+
 // The purpose of this function is to access the forecast API for the searched city
 function getForecast(city) {
   let apiKey = "at534282bb04c7407fb1fcb329do3c45";
@@ -73,27 +82,33 @@ function getForecast(city) {
 }
 
 // The purpose of this function is to update the forecast for the searched city
+// ? review why the syntax function (day, index) works
 function displayForecast(response) {
   console.log(response.data);
 
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<div class="weather-forecast-day">
-                <div class="weather-forecast-date">${day}</div>
-                <div class="weather-forecast-emoji">⛅️</div>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="weather-forecast-day">
+                <div class="weather-forecast-date">${formatDay(day.time)}</div>
+                <img src="${
+                  day.condition.icon_url
+                }" class="weather-forecast-emoji" />
                     <div class="weather-forecast-temperatures">
                         <div class="weather-forecast-temperature">
-                            <strong>15°</strong>
+                            <strong>${Math.round(
+                              day.temperature.maximum
+                            )}°</strong>
                         </div>
                         <div class="weather-forecast-temperature">
-                            30°
+                            ${Math.round(day.temperature.minimum)}°
                         </div>
                     </div>
             </div>`;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");
